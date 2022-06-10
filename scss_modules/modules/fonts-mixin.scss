@@ -1,0 +1,19 @@
+@mixin Mainfont-B {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
+@mixin Mainfont-M {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+}
+
+@mixin Mainfont-R {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+}
+
+@mixin Mainfont-L {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+}

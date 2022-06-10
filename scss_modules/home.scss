@@ -3,37 +3,57 @@
 
 body {
 	margin: 0;
-	background: $dark2;
-}
+	background: $dark1;}
 
 #topnav {
 	display: flex;
+	align-items: center;
 	background: $dark1;
-	padding: 0.8vw 2vw;	
-	color: $light1;
-
-}
+	padding: 20px 3vw;	
+	color: $light1;}
 
 #topnav-title {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 500;
-	font-size: 1vw;
+	@include Mainfont-M;
+	font-size: 20px;
 
-	&:hover {
-		color: $light2;
-	}
-}
+	span {
+		color: $purple1;
+		font-weight: bold;}
+	&:hover { color: $light2; }}
+
 .topnav-link {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 400;
-	font-size: 0.8vw;
-	margin-right: 1vw;
+	@include Mainfont-R;
+	font-size: 14px;
+	margin-right: 16px;
+	
+	&:hover { color: $light2; }
+	&:active {
+		opacity: 0.8;}}
 
-	&:not(:last-child) {
-		margin-left: auto
-	}
+#topnav-home { margin-left: 57px; }
+
+#slogan {
+	margin: 160px 0 0 5vw;
+	
+	p {
+		@include Mainfont-B;
+		font-size: 70px;
+		color: $light1;
+		margin: 0;
+		width: 700px;}}
+
+#create-form {
+	display: block;
+	margin: 80px 0 0 5.2vw;
+	@include Mainfont-M;
+	color: $light1;
+	background: $purple1;
+	padding: 10px;
+	border-radius: 7px;
+	width: fit-content;
+	transition: background 100ms;
 
 	&:hover {
-		color: $light2;
-	}
-}
+		background: $purple2;}
+	&:active {
+		opacity: 0.8;}}

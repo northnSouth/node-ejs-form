@@ -6,20 +6,25 @@ a {
 
 body {
   margin: 0;
-  background: #1c1b1b;
+  background: #1e1e1e;
 }
 
 #topnav {
   display: flex;
+  align-items: center;
   background: #1e1e1e;
-  padding: 0.8vw 2vw;
+  padding: 20px 3vw;
   color: #ccc;
 }
 
 #topnav-title {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-size: 1vw;
+  font-size: 20px;
+}
+#topnav-title span {
+  color: #7723f2;
+  font-weight: bold;
 }
 #topnav-title:hover {
   color: #fff;
@@ -28,14 +33,49 @@ body {
 .topnav-link {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 0.8vw;
-  margin-right: 1vw;
-}
-.topnav-link:not(:last-child) {
-  margin-left: auto;
+  font-size: 14px;
+  margin-right: 16px;
 }
 .topnav-link:hover {
   color: #fff;
+}
+.topnav-link:active {
+  opacity: 0.8;
+}
+
+#topnav-home {
+  margin-left: 57px;
+}
+
+#slogan {
+  margin: 160px 0 0 5vw;
+}
+#slogan p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 70px;
+  color: #ccc;
+  margin: 0;
+  width: 700px;
+}
+
+#create-form {
+  display: block;
+  margin: 80px 0 0 5.2vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #ccc;
+  background: #7723f2;
+  padding: 10px;
+  border-radius: 7px;
+  width: fit-content;
+  transition: background 100ms;
+}
+#create-form:hover {
+  background: #6624c6;
+}
+#create-form:active {
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=home.css.map */
