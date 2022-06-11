@@ -47,10 +47,17 @@ body {
   margin-left: 57px;
 }
 
-#slogan {
-  margin: 160px 0 0 5vw;
+#center-container {
+  display: flex;
+  overflow: hidden;
+  width: 1300px;
+  height: fit-content;
+  margin: 0 auto;
 }
-#slogan p {
+#center-container #slogan-button-container {
+  align-self: center;
+}
+#center-container #slogan-button-container #slogan p {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 70px;
@@ -58,10 +65,9 @@ body {
   margin: 0;
   width: 700px;
 }
-
-#create-form {
+#center-container #slogan-button-container #create-form {
   display: block;
-  margin: 80px 0 0 5.2vw;
+  margin-top: 80px;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #ccc;
@@ -71,11 +77,24 @@ body {
   width: fit-content;
   transition: background 100ms;
 }
-#create-form:hover {
+#center-container #slogan-button-container #create-form:hover {
   background: #6624c6;
 }
-#create-form:active {
+#center-container #slogan-button-container #create-form:active {
   opacity: 0.8;
+}
+#center-container #rick-container {
+  margin-left: auto;
+}
+#center-container #rick-container #rick-happy {
+  width: 531px;
+}
+#center-container #rick-container #rick-gradient {
+  background: linear-gradient(0deg, #1e1e1e 13%, rgba(204, 204, 204, 0) 100%);
+  width: 531px;
+  height: 50%;
+  position: relative;
+  top: -50%;
 }
 
 /*# sourceMappingURL=home.css.map */

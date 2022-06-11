@@ -3,14 +3,16 @@
 
 body {
 	margin: 0;
-	background: $dark1;}
+	background: $dark1;
+}
 
 #topnav {
 	display: flex;
 	align-items: center;
 	background: $dark1;
 	padding: 20px 3vw;	
-	color: $light1;}
+	color: $light1;
+}
 
 #topnav-title {
 	@include Mainfont-M;
@@ -19,7 +21,9 @@ body {
 	span {
 		color: $purple1;
 		font-weight: bold;}
-	&:hover { color: $light2; }}
+
+	&:hover { color: $light2; }
+}
 
 .topnav-link {
 	@include Mainfont-R;
@@ -27,33 +31,60 @@ body {
 	margin-right: 16px;
 	
 	&:hover { color: $light2; }
-	&:active {
-		opacity: 0.8;}}
+	&:active { opacity: 0.8; }
+}
 
 #topnav-home { margin-left: 57px; }
 
-#slogan {
-	margin: 160px 0 0 5vw;
+#center-container {
+	display: flex;
+	overflow: hidden;
+	width: 1300px;
+	height: fit-content;
+	margin: 0 auto;
 	
-	p {
-		@include Mainfont-B;
-		font-size: 70px;
-		color: $light1;
-		margin: 0;
-		width: 700px;}}
+	#slogan-button-container {
+		align-self: center;
+		
+		#slogan {	
+			p {
+				@include Mainfont-B;
+				font-size: 70px;
+				color: $light1;
+				margin: 0;
+				width: 700px;
+			}
+		}
 
-#create-form {
-	display: block;
-	margin: 80px 0 0 5.2vw;
-	@include Mainfont-M;
-	color: $light1;
-	background: $purple1;
-	padding: 10px;
-	border-radius: 7px;
-	width: fit-content;
-	transition: background 100ms;
+		#create-form {
+			display: block;
+			margin-top: 80px;
+			@include Mainfont-M;
+			color: $light1;
+			background: $purple1;
+			padding: 10px;
+			border-radius: 7px;
+			width: fit-content;
+			transition: background 100ms;
 
-	&:hover {
-		background: $purple2;}
-	&:active {
-		opacity: 0.8;}}
+			&:hover { background: $purple2; }
+			&:active { opacity: 0.8; }
+		}
+	}
+
+	#rick-container {
+		margin-left: auto;
+		
+		#rick-happy {
+			width: 531px;
+		}
+
+		#rick-gradient {
+			background: linear-gradient(0deg, rgba(30,30,30,1) 13%, rgba(204,204,204,0) 100%);
+			width: 531px;
+			height: 50%;
+			position: relative;
+			top: -50%;
+		}
+	}
+}
