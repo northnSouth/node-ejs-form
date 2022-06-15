@@ -16,8 +16,8 @@ http.createServer((req, res) => {
 		case '/requests':
 			text = "You are at Requests";
 			break;
-		case '/forms/1':
-			text = "You are seeing form 1"
+		case '/forms':
+			text = "You are at Forms"
 			break;
 		default:
 			text = "You are at 404";
