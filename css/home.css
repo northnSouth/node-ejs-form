@@ -9,44 +9,6 @@ body {
   background: #1e1e1e;
 }
 
-#topnav {
-  display: flex;
-  align-items: center;
-  background: #1e1e1e;
-  padding: 20px 3vw;
-  color: #ccc;
-}
-
-#topnav-title {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-}
-#topnav-title span {
-  color: #7723f2;
-  font-weight: bold;
-}
-#topnav-title:hover {
-  color: #fff;
-}
-
-.topnav-link {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  margin-right: 16px;
-}
-.topnav-link:hover {
-  color: #fff;
-}
-.topnav-link:active {
-  opacity: 0.8;
-}
-
-#topnav-home {
-  margin-left: 57px;
-}
-
 #center-container {
   display: flex;
   overflow: hidden;

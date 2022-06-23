@@ -5,6 +5,7 @@ const http = require("http"),
 
 function pageRoute(req, res) {
 	let reqContentType = "page";
+	let prefix = "/files/";
 	res.setHeader("Content-Type", "text/html");
 
 	path = "./dynamic/";
@@ -12,6 +13,7 @@ function pageRoute(req, res) {
 		case "/":
 			text = "Requested Home";
 			path += "index.ejs";
+			ejs_values = { nav: `${prefix}nav.css`, css: `${prefix}home.css` };
 			res.statusCode = 200;
 			break;
 		case "/requests":
@@ -22,11 +24,12 @@ function pageRoute(req, res) {
 			break;
 		default:
 			text = "Requested 404";
-			path = null;
+			path += "404.ejs";
+			ejs_values = { nav: `${prefix}nav.css` };
 			res.statusCode = 404;
 			break;
 	}
-	return { path, text, reqContentType };
+	return { path, text, reqContentType, ejs_values };
 }
 
 function fileRoute(req, res) {
@@ -53,7 +56,7 @@ function fileRoute(req, res) {
 			break;
 		default:
 			text = "File 404";
-			path = null;
+			path = "";
 			res.statusCode = 404;
 			break;
 	}
@@ -75,6 +78,7 @@ http.createServer((req, res) => {
 
 	let text = route.text;
 	let path = route.path;
+	let ejs_values = route.ejs_values;	
 
 	console.log("URL: " + req.url);
 	console.log("Path: " + path);
@@ -86,7 +90,8 @@ http.createServer((req, res) => {
 			res.end();
 		} else {
 			if (route.reqContentType === "page") {
-				res.end(ejs.render(data.toString()));
+				Object.assign(ejs_values, {filename: path});
+				res.end(ejs.render(data.toString(), ejs_values));
 			} else {
 				res.end(data);
 			}

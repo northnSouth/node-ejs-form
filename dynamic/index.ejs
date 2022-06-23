@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>North Forms</title>
-	<link rel="stylesheet" href="/files/home.css" type="text/css">
-</head>
+<%- include('partials/head.ejs') %>
 <body>
-	<nav id="topnav">
-		<a href="#" id="topnav-title">North<span>_</span>Forms</a>
-		<a href="#" id="topnav-home" class="topnav-link">Home</a>
-		<a href="#" id="topnav-requests" class="topnav-link">Requests</a>
-		<a href="#" id="topnav-forms" class="topnav-link">Your Forms</a>	
-	</nav>
+	<%- include('partials/nav.ejs') %>
 	<div id="center-container">
-
 		<div id="slogan-button-container">
 		<div id="slogan"><p>Create forms easier than ever.</p></div>
 		<a id="create-form" href="#">Create a Form</a>

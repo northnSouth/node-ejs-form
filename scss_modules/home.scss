@@ -1,40 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
 @import 'modules/exports';
 
 body {
 	margin: 0;
 	background: $dark1;
 }
-
-#topnav {
-	display: flex;
-	align-items: center;
-	background: $dark1;
-	padding: 20px 3vw;	
-	color: $light1;
-}
-
-#topnav-title {
-	@include Mainfont-M;
-	font-size: 20px;
-
-	span {
-		color: $purple1;
-		font-weight: bold;}
-
-	&:hover { color: $light2; }
-}
-
-.topnav-link {
-	@include Mainfont-R;
-	font-size: 14px;
-	margin-right: 16px;
-	
-	&:hover { color: $light2; }
-	&:active { opacity: 0.8; }
-}
-
-#topnav-home { margin-left: 57px; }
 
 #center-container {
 	display: flex;
