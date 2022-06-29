@@ -1,7 +1,7 @@
 #topnav {
 	display: flex;
 	align-items: center;
-	background: #1e1e1e;
+	background: #1a1a1a;
 	padding: 20px 3vw;	
 	color: #ccc;
 }
@@ -9,7 +9,8 @@
 #topnav-title {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
-	font-size: 20px;	
+	font-size: 20px;
+	margin: 0;
 }
 
 #topnav-title span {

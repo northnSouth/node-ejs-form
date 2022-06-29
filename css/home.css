@@ -6,7 +6,7 @@ a {
 
 body {
   margin: 0;
-  background: #1e1e1e;
+  background: #1a1a1a;
 }
 
 #center-container {
@@ -52,7 +52,7 @@ body {
   width: 531px;
 }
 #center-container #rick-container #rick-gradient {
-  background: linear-gradient(0deg, #1e1e1e 13%, rgba(204, 204, 204, 0) 100%);
+  background: linear-gradient(0deg, #1a1a1a 13%, rgba(204, 204, 204, 0) 100%);
   width: 531px;
   height: 50%;
   position: relative;

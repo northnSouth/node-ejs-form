@@ -16,8 +16,8 @@ function pageRoute(req, res) {
 			ejs_values = { nav: `${prefix}nav.css`, css: `${prefix}home.css` };
 			res.statusCode = 200;
 			break;
-		case "/requests":
-			text = "Requested Requests";
+		case "/create-form":
+			text = "Requested Create Form";
 			break;
 		case "/forms":
 			text = "Requested Forms";
