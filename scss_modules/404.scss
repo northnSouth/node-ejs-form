@@ -1,0 +1,26 @@
+@import 'modules/exports';
+
+div {
+	position: absolute;
+	top: 250px;
+	width: 100vw;
+}
+
+h1 {
+	font-size: 70px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	color: $light1;
+	text-align: center;
+	margin: 0;
+}
+
+h4 {
+	font-size: 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	color: $light1;
+	text-align: center;
+	margin: 30px auto;
+   	width: 600px;
+}

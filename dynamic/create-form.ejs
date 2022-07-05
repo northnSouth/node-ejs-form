@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs') %>
+<body>
+	
+	<%- include('partials/nav.ejs') %>
+	<form>
+		<input id="ctitle" class="cform" value="Form Title" placeholder="Form Title Here">
+		<div id="form-background" autocomplete="off">
+			<div id="top-border"></div>
+			<div id="main-contents-container">
+				<input id="clabel-0" class="cform clabel" value="Field Title"
+				placeholder="Field Title Here">
+				<input id="cinput-0" class="cform cinput"
+				placeholder="Placeholder (empty if omitted)">
+				<p id="add-field">+ Add a field</p>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>

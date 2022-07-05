@@ -9,23 +9,25 @@ function pageRoute(req, res) {
 	res.setHeader("Content-Type", "text/html");
 
 	path = "./dynamic/";
+	res.statusCode = 200;
 	switch (req.url) {
 		case "/":
-			text = "Requested Home";
+			text = "Home";
 			path += "index.ejs";
-			ejs_values = { nav: `${prefix}nav.css`, css: `${prefix}home.css` };
-			res.statusCode = 200;
+			ejs_values = { css: `${prefix}home.css` };
 			break;
 		case "/create-form":
-			text = "Requested Create Form";
+			text = "Create Form";
+			path += "create-form.ejs";
+			ejs_values = { css: `${prefix}create-form.css` };
 			break;
 		case "/forms":
-			text = "Requested Forms";
+			text = "Forms";
 			break;
 		default:
-			text = "Requested 404";
+			text = "404";
 			path += "404.ejs";
-			ejs_values = { nav: `${prefix}nav.css` };
+			ejs_values = { css: `${prefix}404.css` };
 			res.statusCode = 404;
 			break;
 	}
@@ -42,24 +44,12 @@ function fileRoute(req, res) {
 	let filename = req.url.split("/").pop();
 
 	path = ""; // reset or empty path
-	if (ext === "css") {
-		path = css;
-	} else if (ext === "webp") {
-		path = images;
-	}
+	if (ext === "css") { path = css }
+	else if (ext === "webp") { path = images }
 
-	switch (req.url) {
-		case prefix + filename:
-			text = "Requested " + filename;
-			path += filename;
-			res.statusCode = 200;
-			break;
-		default:
-			text = "File 404";
-			path = "";
-			res.statusCode = 404;
-			break;
-	}
+	text = filename;
+	path += filename;
+	
 	return { path, text, reqContentType };
 }
 
@@ -70,10 +60,13 @@ http.createServer((req, res) => {
 
 	if (isFile) {
 		route = fileRoute(req, res);
+		if (fs.existsSync(route.path)) { res.statusCode = 200 }
+		else { res.statusCode = 404 }
+		
 		console.log("\nFile");
 	} else {
 		route = pageRoute(req, res);
-		console.log("\nPage");
+		console.log("\nPage ---------");
 	}
 
 	let text = route.text;
@@ -82,19 +75,18 @@ http.createServer((req, res) => {
 
 	console.log("URL: " + req.url);
 	console.log("Path: " + path);
-	console.log(text);
+	console.log(req.method + " " + res.statusCode + " " + text);
 	fs.readFile(path, (err, data) => {
 		if (err) {
 			console.log(err);
 			res.write("No Content");
+			res.statusCode = 404;
 			res.end();
 		} else {
 			if (route.reqContentType === "page") {
 				Object.assign(ejs_values, {filename: path});
 				res.end(ejs.render(data.toString(), ejs_values));
-			} else {
-				res.end(data);
-			}
+			} else { res.end(data) }
 		}
 	});
 }).listen(3000, () => {

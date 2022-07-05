@@ -1,0 +1,91 @@
+@import 'modules/exports';
+
+form {
+	margin: 0 auto;
+	width: fit-content;
+	margin-top: 80px;
+}
+
+.cform {
+	background: none;
+	border: none;
+
+	&:focus { outline: none }
+}
+
+.clabel {
+	@include Mainfont-M;
+	color: $light3;
+	font-size: 18px;
+	margin-bottom: 14px;
+	width: fit-content;
+
+	&:focus {
+		padding-bottom: 5px;
+		border-bottom: 1px solid $light3;
+	}
+}
+
+.cinput {
+	background-color: $Cpurple-bg;
+	height: 35px;
+	border-radius: 7px;
+	font-size: 15px;
+	color: $grey1;
+	padding-left: 10px;
+	width: 20em;
+
+	&::placeholder {
+		color: inherit;
+		opacity: 1;
+	}
+}
+
+#ctitle {
+	color: #ccc;
+	@include Mainfont-B;
+	font-weight: 700;
+	font-size: 45px;
+	width: 800px;
+	
+	&:focus {
+		padding-bottom: 15px;
+		border-bottom: 1px solid $light3;
+	}
+}
+
+#form-background {
+	display: flex;
+	width: 900px;
+	margin: 0 auto;
+	margin-top: 60px;
+	filter: drop-shadow(0 0 20px black);
+}
+
+#top-border {
+	width: 100%;
+	background-color: $Cpurple-fg;
+	height: 100px;
+	border-radius: 30px;
+}
+
+#main-contents-container {
+	width: 66.7%;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	background-color: $dark2;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	padding: 50px 16.65%;
+	top: 25px;
+}
+
+#add-field {
+	color: $grey2;
+	@include Mainfont-M;
+	margin: 0;
+	margin-top: 20px;
+
+	&:hover { cursor: pointer }
+}
