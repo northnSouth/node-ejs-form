@@ -4,4 +4,9 @@
 	<title>North Forms</title>
 	<link rel="stylesheet" href=<%= css %> type="text/css">
 	<link rel="stylesheet" href="/files/nav.css" type="text/css">
+	<% try { %>
+		<% js.forEach(js => { %>
+			<script type="text/javascript" src=<%= js %>></script>
+		<% }) %>
+		<% } catch { /* do nothing */ } %>
 </head>

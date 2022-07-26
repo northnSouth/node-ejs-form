@@ -5,18 +5,36 @@
 	
 	<%- include('partials/nav.ejs') %>
 	<form>
-		<input id="ctitle" class="cform" value="Form Title" placeholder="Form Title Here">
+		<div class="pencil"></div>
+		<textarea id="ctitle" class="cform txtauto" spellcheck="false" placeholder="Form Title">My Form</textarea>
 		<div id="form-background" autocomplete="off">
+
 			<div id="top-border"></div>
 			<div id="main-contents-container">
-				<input id="clabel-0" class="cform clabel" value="Field Title"
-				placeholder="Field Title Here">
-				<input id="cinput-0" class="cform cinput"
-				placeholder="Placeholder (empty if omitted)">
+
+				<textarea id="cdesc" class="cform txtauto" spellcheck="false" placeholder="Add a description..."></textarea>
+				<div id="fields-container">	
+					<div>
+						<div class="pencil labpencil"></div>
+						<input id="clabel-0" class="cform clabel" value="Field Title"
+						placeholder="Field Title Here">
+						</div>
+					<div>
+						<input id="cinput-0" class="cform cinput"
+						placeholder="Placeholder (empty if omitted)">
+						</div>
+				</div>
 				<p id="add-field">+ Add a field</p>
+			
 			</div>
 		</div>
 	</form>
-
+	<script>
+		window.onload = () => {
+			showPencil();
+			textareaResize();
+			addField();
+		}
+	</script>
 </body>
 </html>

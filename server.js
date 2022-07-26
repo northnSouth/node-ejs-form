@@ -19,7 +19,13 @@ function pageRoute(req, res) {
 		case "/create-form":
 			text = "Create Form";
 			path += "create-form.ejs";
-			ejs_values = { css: `${prefix}create-form.css` };
+			ejs_values = {
+				css: `${prefix}create-form.css`,
+				js: [ 
+					`${prefix}add-field.js`,
+					`${prefix}ui-functions.js`
+				]
+			};
 			break;
 		case "/forms":
 			text = "Forms";
@@ -37,15 +43,16 @@ function pageRoute(req, res) {
 function fileRoute(req, res) {
 	let reqContentType = "file";
 	let prefix = "/files/";
-	let css = "./css/";
-	let images = "./images/";
+	//let css = "./css/";
+	//let images = "./images/";
 	let ext = req.url.split(".").pop();
 
 	let filename = req.url.split("/").pop();
 
 	path = ""; // reset or empty path
-	if (ext === "css") { path = css }
-	else if (ext === "webp") { path = images }
+	if (ext === "css") { path = "./css/" }
+	else if ( ext === "webp" | ext === "svg" ) { path = "./images/" }
+	else if (ext === "js") { path = "./js_modules/" }
 
 	text = filename;
 	path += filename;
@@ -63,10 +70,10 @@ http.createServer((req, res) => {
 		if (fs.existsSync(route.path)) { res.statusCode = 200 }
 		else { res.statusCode = 404 }
 		
-		console.log("\nFile");
+		console.log("\x1b[32m","\nFile", "\x1b[0m");
 	} else {
 		route = pageRoute(req, res);
-		console.log("\nPage ---------");
+		console.log("\n" + "\x1b[43m\x1b[30m%s\x1b[0m", " Page --------- ");
 	}
 
 	let text = route.text;

@@ -31,6 +31,7 @@ form {
   color: #bdbdbd;
   font-size: 18px;
   margin-bottom: 14px;
+  margin-top: 25px;
   width: fit-content;
 }
 .clabel:focus {
@@ -46,14 +47,33 @@ form {
   color: #777676;
   padding-left: 10px;
   width: 20em;
+  margin-bottom: 30px;
 }
 .cinput::placeholder {
   color: inherit;
   opacity: 1;
 }
 
+.pencil {
+  display: none;
+  background-color: #bdbdbd;
+  -webkit-mask: url(/files/pencil-solid.svg) no-repeat center;
+  mask: url(/files/pencil-solid.svg) no-repeat center;
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+}
+
+.labpencil {
+  width: 12px;
+  height: 12px;
+  margin-right: 3px;
+}
+
 #ctitle {
   color: #ccc;
+  overflow: hidden;
+  resize: none;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-weight: 700;
@@ -61,7 +81,7 @@ form {
   width: 800px;
 }
 #ctitle:focus {
-  padding-bottom: 15px;
+  padding-bottom: 12px;
   border-bottom: 1px solid #bdbdbd;
 }
 
@@ -88,8 +108,27 @@ form {
   background-color: #1c1b1b;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  padding: 50px 16.65%;
+  padding: 40px 16.65%;
   top: 25px;
+}
+
+#cdesc {
+  resize: none;
+  color: #ccc;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 5px;
+  height: fit-content;
+}
+#cdesc:focus {
+  outline: #777676 solid 1px;
+}
+
+hr {
+  width: 92%;
+  opacity: 0.3;
 }
 
 #add-field {
@@ -97,7 +136,6 @@ form {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   margin: 0;
-  margin-top: 20px;
 }
 #add-field:hover {
   cursor: pointer;

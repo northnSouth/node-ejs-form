@@ -18,6 +18,7 @@ form {
 	color: $light3;
 	font-size: 18px;
 	margin-bottom: 14px;
+	margin-top: 25px;
 	width: fit-content;
 
 	&:focus {
@@ -34,6 +35,7 @@ form {
 	color: $grey1;
 	padding-left: 10px;
 	width: 20em;
+	margin-bottom: 30px;
 
 	&::placeholder {
 		color: inherit;
@@ -41,15 +43,33 @@ form {
 	}
 }
 
+.pencil {
+	display: none;
+	background-color: $light3;
+	-webkit-mask: url(/files/pencil-solid.svg) no-repeat center;
+	mask: url(/files/pencil-solid.svg) no-repeat center;
+	width: 28px;
+	height: 28px;
+	margin-right: 12px;
+}
+
+.labpencil {
+	width: 12px;
+	height: 12px;
+	margin-right: 3px;
+}
+
 #ctitle {
 	color: #ccc;
+	overflow: hidden;
+	resize: none;
 	@include Mainfont-B;
 	font-weight: 700;
 	font-size: 45px;
 	width: 800px;
 	
 	&:focus {
-		padding-bottom: 15px;
+		padding-bottom: 12px;
 		border-bottom: 1px solid $light3;
 	}
 }
@@ -77,15 +97,31 @@ form {
 	background-color: $dark2;
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
-	padding: 50px 16.65%;
-	top: 25px;
+	padding: 40px 16.65%;
+	top: 25px;	
+}
+
+#cdesc {
+	resize: none;
+	color: $light1;
+	font-size: 16px;
+	@include Mainfont-R;
+	border-radius: 5px;
+	padding: 5px;
+	height: fit-content;
+	
+	&:focus { outline: $grey1 solid 1px }
+}
+
+hr {
+	width: 92%;
+	opacity: 0.3;
 }
 
 #add-field {
 	color: $grey2;
 	@include Mainfont-M;
 	margin: 0;
-	margin-top: 20px;
 
 	&:hover { cursor: pointer }
 }
