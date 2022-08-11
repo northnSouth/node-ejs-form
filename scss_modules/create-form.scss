@@ -59,18 +59,50 @@ form {
 	margin-right: 3px;
 }
 
+#form-head-container {
+	display: flex;
+	align-items: center;
+}
+
 #ctitle {
 	color: #ccc;
 	overflow: hidden;
 	resize: none;
 	@include Mainfont-B;
-	font-weight: 700;
 	font-size: 45px;
-	width: 800px;
+	width: 685px;
+	margin-left: 16px;
+	margin-right: 50px;
 	
 	&:focus {
+		width: 800px;
 		padding-bottom: 12px;
 		border-bottom: 1px solid $light3;
+		margin-bottom: 33px;
+	}
+}
+
+#cicon { display: none }
+
+[for="cicon"] {
+	display: inline-block;
+	position: relative;
+	@include Mainfont-M;
+	color: $grey2;
+	border: $grey1 dashed 2px;
+	border-radius: 10px;
+	padding: 35px;
+	top: -16px;
+	
+	&:hover { cursor: pointer }
+	
+	&>div {
+		display: inline-block;
+		background-color: $light3;
+		width: 28px;
+		height: 28px;
+		-webkit-mask: url(/files/camera-solid.svg) no-repeat center;
+		mask: url(/files/camera-solid.svg) no-repeat center;
 	}
 }
 
@@ -78,7 +110,7 @@ form {
 	display: flex;
 	width: 900px;
 	margin: 0 auto;
-	margin-top: 60px;
+	margin-top: 40px;
 	filter: drop-shadow(0 0 20px black);
 }
 

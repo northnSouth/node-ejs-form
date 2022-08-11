@@ -70,26 +70,61 @@ form {
   margin-right: 3px;
 }
 
+#form-head-container {
+  display: flex;
+  align-items: center;
+}
+
 #ctitle {
   color: #ccc;
   overflow: hidden;
   resize: none;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-weight: 700;
   font-size: 45px;
-  width: 800px;
+  width: 685px;
+  margin-left: 16px;
+  margin-right: 50px;
 }
 #ctitle:focus {
+  width: 800px;
   padding-bottom: 12px;
   border-bottom: 1px solid #bdbdbd;
+  margin-bottom: 33px;
+}
+
+#cicon {
+  display: none;
+}
+
+[for=cicon] {
+  display: inline-block;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #9d9d9d;
+  border: #777676 dashed 2px;
+  border-radius: 10px;
+  padding: 35px;
+  top: -16px;
+}
+[for=cicon]:hover {
+  cursor: pointer;
+}
+[for=cicon] > div {
+  display: inline-block;
+  background-color: #bdbdbd;
+  width: 28px;
+  height: 28px;
+  -webkit-mask: url(/files/camera-solid.svg) no-repeat center;
+  mask: url(/files/camera-solid.svg) no-repeat center;
 }
 
 #form-background {
   display: flex;
   width: 900px;
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 40px;
   filter: drop-shadow(0 0 20px black);
 }
 

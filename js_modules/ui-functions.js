@@ -22,12 +22,10 @@ function showPencil() {
 function textareaResize() {
 	const elems = document.querySelectorAll(".txtauto");
 	const setHeight = (i)=> {
-		console.log(i)
 		elems[i].style.height = "";
 	  	elems[i].style.height = elems[i].scrollHeight/2 + "px";	
 
 		if (elems[i].clientHeight < elems[i].scrollHeight) {
-			console.log("overflowing")
 			elems[i].style.height = elems[i].scrollHeight + "px";
 		}
 	}
@@ -36,4 +34,12 @@ function textareaResize() {
 		setHeight(i);
 		elems[i].addEventListener("input", ()=> { setHeight(i) });
 	}	
+}
+
+function hideFileInput() {
+	const title = document.querySelector("#ctitle");
+	const finput = document.querySelector("[for=cicon]");
+
+	title.addEventListener("focus", ()=> { finput.style.display = "none" });
+	title.addEventListener("blur", ()=> { finput.style.display = "" });
 }
