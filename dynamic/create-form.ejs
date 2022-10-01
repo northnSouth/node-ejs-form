@@ -6,17 +6,16 @@
 	<%- include('partials/nav.ejs') %>
 	<form>
 		<div id="form-head-container">
-			<div class="pencil"></div>
 			<textarea id="ctitle" name="title" class="cform txtauto" spellcheck="false" placeholder="Form Title">My Form</textarea>
-			<input type="file" accept="image/png, image/jpeg" id="cicon" name="icon" onchange="loadFile(event)">
-			<label for="cicon"><div></div></div></label>
-			<img id="icon-display">
-			<script>
-				const loadFile = function(event) {
-				 	const image = document.getElementById('icon-display');
-              		image.src=URL.createObjectURL(event.target.files[0]);
-          		};
-			</script>
+			<div id="icon-container">	
+
+				<input type="file" accept="image/png, image/jpeg" id="cicon" name="icon" onchange="iconCtrl(event)">
+				<div id="cicon-container" onmouseover="this.style.opacity=1">
+					<label for="cicon"><div id="cam-mask"></div></label>
+					<div id="rm-icon"><div id="trash-mask"></div></div>	
+				</div>
+				<img id="icon-display">
+			</div>
 		</div>
 		<div id="form-background" autocomplete="off">
 
@@ -27,16 +26,15 @@
 					spellcheck="false" placeholder="Add a description..."></textarea>
 				<div id="fields-container">	
 
-					<!-- FIXME: name attribute is not generated automatically -->
 					<div>
-						<div class="pencil labpencil"></div>
 						<input id="clabel-0" name="label-0" class="cform clabel" value="Field Title"
 						placeholder="Field Title Here">
-						</div>
+					</div>
 					<div>
 						<input id="cinput-0" name="input-0" class="cform cinput"
 						placeholder="Placeholder (empty if omitted)">
-						</div>
+					</div>
+
 				</div>
 				<p id="add-field">+ Add a field</p>
 			
@@ -45,9 +43,8 @@
 	</form>
 	<script>
 		window.onload = () => {
-			showPencil();
 			textareaResize();
-			hideFileInput();
+			hideIcon();
 			addField();
 		}
 	</script>

@@ -1,5 +1,7 @@
 @import 'modules/exports';
 
+* { box-sizing: border-box }
+
 form {
 	margin: 0 auto;
 	width: fit-content;
@@ -43,22 +45,6 @@ form {
 	}
 }
 
-.pencil {
-	display: none;
-	background-color: $light3;
-	-webkit-mask: url(/files/pencil-solid.svg) no-repeat center;
-	mask: url(/files/pencil-solid.svg) no-repeat center;
-	width: 28px;
-	height: 28px;
-	margin-right: 12px;
-}
-
-.labpencil {
-	width: 12px;
-	height: 12px;
-	margin-right: 3px;
-}
-
 #form-head-container {
 	display: flex;
 	align-items: center;
@@ -73,10 +59,10 @@ form {
 	width: 685px;
 	margin-left: 16px;
 	margin-right: 50px;
+	padding-bottom: 12px;
 	
 	&:focus {
 		width: 800px;
-		padding-bottom: 12px;
 		border-bottom: 1px solid $light3;
 		margin-bottom: 33px;
 	}
@@ -84,28 +70,78 @@ form {
 
 #cicon { display: none }
 
-[for="cicon"] {
-	display: inline-block;
-	position: relative;
-	@include Mainfont-M;
+#icon-container { 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#icon-display {
+	position: absolute;
+	display: none;
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	object-fit: cover;
+}
+
+#cicon-container {
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+	
+	&:hover { cursor: pointer }
+	&:hover + img { opacity: 0.5 }
+}
+
+
+[for="cicon"] {	
 	color: $grey2;
 	border: $grey1 dashed 2px;
 	border-radius: 10px;
-	padding: 35px;
-	top: -16px;
+	overflow: hidden;
 	
-	&:hover { cursor: pointer }
-	
-	&>div {
-		display: inline-block;
+	&:hover { cursor: pointer; }
+	#cam-mask {
 		background-color: $light3;
 		width: 28px;
 		height: 28px;
+		margin: 35px;
 		-webkit-mask: url(/files/camera-solid.svg) no-repeat center;
-		mask: url(/files/camera-solid.svg) no-repeat center;
+		mask: url(/files/camera-solid.svg) no-repeat center;	
 	}
 }
 
+#trash-mask {
+	display: none;
+	background-color: $light3;
+	width: 15px;
+	height: 15px;
+	-webkit-mask: url(/files/trash-solid.svg) no-repeat center;
+	mask: url(/files/trash-solid.svg) no-repeat center;
+}
+
+.iconCtrl-label {
+	border-radius: 10px 10px 0 0;
+	margin-bottom: 2px;
+
+	#cam-mask {
+		margin-top: 18px;
+		margin-bottom: 15px;
+	}
+}
+
+.iconCtrl-rm-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 35px;
+	border-radius: 0px 0px 10px 10px;
+	background: $red1;
+
+	#trash-mask { display: block }
+}
+ 
 #form-background {
 	display: flex;
 	width: 900px;
@@ -122,7 +158,7 @@ form {
 }
 
 #main-contents-container {
-	width: 66.7%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	position: absolute;

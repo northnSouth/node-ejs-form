@@ -1,24 +1,3 @@
-function showPencil() {
-	const ctitle = document.getElementById("ctitle");
-	const dotpencil	= document.getElementsByClassName("pencil");
-	const dotlabpencil = document.getElementsByClassName("labpencil");
-	const dotclabel = document.getElementsByClassName("clabel");	
-
-	function aELGenerator(field, pencilIndex) {
-		field.addEventListener("focus", () => {
-			dotpencil[pencilIndex].style.display = "inline-block";
-		});
-		field.addEventListener("blur", () => {
-			dotpencil[pencilIndex].style.display = "none";
- 		});
-	}
-	  			
-	aELGenerator(ctitle, 0);
-
-	for (let i=0;i < dotlabpencil.length;i++) {
-		aELGenerator(dotclabel[i], i + 1)}
-}
-
 function textareaResize() {
 	const elems = document.querySelectorAll(".txtauto");
 	const setHeight = (i)=> {
@@ -32,14 +11,23 @@ function textareaResize() {
 
 	for (let i=0;i < elems.length;i++) {
 		setHeight(i);
-		elems[i].addEventListener("input", ()=> { setHeight(i) });
+		"input focusin focusout".split(" ").forEach(function(e){
+      		addEventListener(e, ()=> { setHeight(i) });
+    	});	
 	}	
 }
 
-function hideFileInput() {
+function hideIcon() {
 	const title = document.querySelector("#ctitle");
 	const finput = document.querySelector("[for=cicon]");
+	const icon = document.querySelector("#icon-display");
 
-	title.addEventListener("focus", ()=> { finput.style.display = "none" });
-	title.addEventListener("blur", ()=> { finput.style.display = "" });
+	title.addEventListener("focus", ()=> { finput.style.display = icon.style.display = "none" });
+	title.addEventListener("blur", ()=> {
+		if (icon.src == "") {
+			finput.style.display = ""; // fixes bug or glitch where there's white lines if <img> without picture's display = block.
+		} else {
+			finput.style.display = icon.style.display = "block";
+		}
+	});
 }

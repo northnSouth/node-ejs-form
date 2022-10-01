@@ -4,7 +4,7 @@ const http = require("http"),
 	parseLang = require("accept-language-parser");
 
 function pageRoute(req, res) {
-	let reqContentType = "page";
+	let reqContentType = "HTML";
 	let prefix = "/files/";
 	res.setHeader("Content-Type", "text/html");
 
@@ -22,7 +22,7 @@ function pageRoute(req, res) {
 			ejs_values = {
 				css: `${prefix}create-form.css`,
 				js: [ 
-					`${prefix}add-field.js`,
+					`${prefix}utility.js`,
 					`${prefix}ui-functions.js`
 				]
 			};
@@ -41,7 +41,7 @@ function pageRoute(req, res) {
 }
 
 function fileRoute(req, res) {
-	let reqContentType = "file";
+	var reqContentType;
 	let prefix = "/files/";
 	//let css = "./css/";
 	//let images = "./images/";
@@ -50,9 +50,9 @@ function fileRoute(req, res) {
 	let filename = req.url.split("/").pop();
 
 	path = ""; // reset or empty path
-	if (ext === "css") { path = "./css/" }
-	else if ( ext === "webp" | ext === "svg" ) { path = "./images/" }
-	else if (ext === "js") { path = "./js_modules/" }
+	if (ext === "css") { path = "./css/"; reqContentType = "Stylesheet" }
+	else if ( ext === "webp" | ext === "svg" ) { path = "./images/"; reqContentType = "Image" }
+	else if (ext === "js") { path = "./js_modules/"; reqContentType = "Javascript" }
 
 	text = filename;
 	path += filename;
@@ -90,9 +90,12 @@ http.createServer((req, res) => {
 			res.statusCode = 404;
 			res.end();
 		} else {
-			if (route.reqContentType === "page") {
+			if (route.reqContentType === "HTML") {
 				Object.assign(ejs_values, {filename: path});
 				res.end(ejs.render(data.toString(), ejs_values));
+			} else if (route.reqContentType === "Javascript") { // fixes browser MIME type error
+				res.setHeader("Content-Type", "text/javascript");
+				res.end(data);
 			} else { res.end(data) }
 		}
 	});
